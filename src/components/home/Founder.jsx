@@ -16,13 +16,15 @@ const Founder = () => {
   return (
     <section className="founder">
       <motion.div {...options}>
+        <h2>FOUNDER</h2>
         <img src={me} alt="Founder" height={200} width={200} />
-        <h3>Nelson</h3>
+        <h3>Gigi Brogramer</h3>
 
         <p>
-          Hey, Everyone I am Nelson, the founder of Burger Shop.
+          Hey, Everyone I am Gigi, the founder of this burger shop
           <br />
-          Our aim is to create the most tasty burger on planet.
+          Our aim is to spend our money made by coding all day and maybe make
+          some good burgers
         </p>
       </motion.div>
     </section>

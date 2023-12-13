@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import burger1 from "../../assets/burger1.png";
 import burger2 from "../../assets/burger2.png";
-// import burger3 here
+import burger3 from "../../assets/burger3.png";
 
 const CartItem = ({ value, title, img, increment, decrement }) => (
   <div className="cartItem">
@@ -20,9 +20,35 @@ const CartItem = ({ value, title, img, increment, decrement }) => (
 );
 
 const Cart = () => {
-  const increment = (item) => {};
+  const [cartItems, setCartItems] = useState({
+    1: 0, // Cheese Burger
+    2: 0, // Veg Cheese Burger
+    3: 0, // Cheese Burger with French Fries
+  });
 
-  const decrement = (item) => {};
+  const increment = (itemId) => {
+    setCartItems((prevItems) => ({
+      ...prevItems,
+      [itemId]: prevItems[itemId] + 1,
+    }));
+  };
+
+  const decrement = (itemId) => {
+    if (cartItems[itemId] > 0) {
+      setCartItems((prevItems) => ({
+        ...prevItems,
+        [itemId]: prevItems[itemId] - 1,
+      }));
+    }
+  };
+
+  // Calculate subtotal, tax, shipping charges, and total
+  const subTotal =
+    2000 *
+    Object.values(cartItems).reduce((acc, quantity) => acc + quantity, 0);
+  const tax = subTotal * 0.18;
+  const shippingCharges = 200;
+  const total = subTotal + tax + shippingCharges;
 
   return (
     <section className="cart">
@@ -30,40 +56,40 @@ const Cart = () => {
         <CartItem
           title={"Cheese Burger"}
           img={burger1}
-          value={0}
+          value={cartItems[1]}
           increment={() => increment(1)}
-
-        // Add the function for decrementing the order by 1 
-       
+          decrement={() => decrement(1)}
         />
         <CartItem
           title={"Veg Cheese Burger"}
           img={burger2}
-          value={0}
+          value={cartItems[2]}
           increment={() => increment(2)}
-        // Add the function for decrementing the order by 2
-       
+          decrement={() => decrement(2)}
         />
-
-        {/* Fill up the code for Cheese Burger similarly */}
-       
-
+        <CartItem
+          title={"Cheese Burger with French Fries"}
+          img={burger3}
+          value={cartItems[3]}
+          increment={() => increment(3)}
+          decrement={() => decrement(3)}
+        />
         <article>
           <div>
             <h4>Sub Total</h4>
-            <p>₹{2000}</p>
+            <p>₹{subTotal}</p>
           </div>
           <div>
             <h4>Tax</h4>
-            <p>₹{2000 * 0.18}</p>
+            <p>₹{tax}</p>
           </div>
           <div>
             <h4>Shipping Charges</h4>
-            <p>₹{200}</p>
+            <p>₹{shippingCharges}</p>
           </div>{" "}
           <div>
             <h4>Total</h4>
-            <p>₹{2000 + 2000 * 0.18 + 200}</p>
+            <p>₹{total}</p>
           </div>
           <Link to="/shipping">Checkout</Link>
         </article>

@@ -2,14 +2,13 @@
 
 #menu {
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   background-color: white;
-  padding: 4rem;
+  padding: 1rem;
 
   > h1 {
     font-size: 2rem;
     text-align: center;
-    padding: 2rem;
   }
 
   > div {
@@ -81,4 +80,3 @@
     margin: 1rem 0;
   }
 }
-
