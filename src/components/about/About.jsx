@@ -2,10 +2,11 @@
 import React from "react";
 import Founder from "../home/Founder";
 import { CiSearch } from "react-icons/ci";
-
+import NavigationBar from "../layout/Header";
 function About() {
   return (
     <div className="about">
+      <NavigationBar />
       <main>
         <h1>ABOUT US</h1>
         <article>
@@ -17,7 +18,7 @@ function About() {
           </p>
           <p>
             Our wide menu of hamburgers can satisfy the most pretencious of
-            programers, be them full stack engineers, DecOps or even Systems
+            programers, be them full stack engineers, DevOps or even Systems
             engineers
           </p>
           <a href="">

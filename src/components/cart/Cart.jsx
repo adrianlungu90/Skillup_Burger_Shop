@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import burger1 from "../../assets/burger1.png";
 import burger2 from "../../assets/burger2.png";
 import burger3 from "../../assets/burger3.png";
+import NavigationBar from "../layout/Header";
 
 const CartItem = ({ value, title, img, increment, decrement }) => (
   <div className="cartItem">
@@ -52,6 +53,7 @@ const Cart = () => {
 
   return (
     <section className="cart">
+      <NavigationBar />
       <main>
         <CartItem
           title={"Cheese Burger"}

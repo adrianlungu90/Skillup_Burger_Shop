@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header";
+
 import Contact from "./components/contact/Contact";
 import Menu from "./components/home/Menu";
 import Cart from "./components/cart/Cart";
@@ -31,7 +31,6 @@ import "./styles/about.scss";
 function App() {
   return (
     <Router>
-      <Header isAuthenticated={true} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
@@ -43,14 +42,7 @@ function App() {
         <Route path="/orders" element={<MyOrders />} />
         <Route path="/order/:id" element={<OrderDetails />} />
       </Routes>
-      {/*
 
-      {/*   
-        <Route path="/me" element={<Profile />} />
-        // Add the Route for MY ORDERS
-        <Route path="/order/:id" element={<OrderDetails />} />
-      </Routes>
-*/}
       <Footer />
     </Router>
   );

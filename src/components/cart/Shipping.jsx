@@ -2,6 +2,7 @@ import React from "react";
 import { Country, State } from "country-state-city";
 import { useState } from "react";
 import Popup from "reactjs-popup";
+import NavigationBar from "../layout/Header";
 
 const Shipping = () => {
   const [countryCode, setCountryCode] = useState("");
@@ -12,6 +13,7 @@ const Shipping = () => {
 
   return (
     <section className="shipping">
+      <NavigationBar />
       <main>
         <h1>Shipping Details</h1>
         <form>
